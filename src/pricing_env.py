@@ -71,3 +71,25 @@ class PricingEnv(gym.Env):
         info = {"units_sold": units_sold}
 
         return observation, reward, terminated, truncated, info
+    
+    def _compute_demand(self, price_level, days_until_departure):
+        """
+        Stochastic demand function using a logistic curve.
+        - Higher price_level -> lower purchase probability
+        - Fewer days_until_departure -> higher urgency -> higher purchase probability
+        """
+        # Base sensitivity to price (higher price -> lower probability)
+        price_sensitivity = 5.0
+
+        # Urgency factor: as days decrease, urgency increases
+        urgency = 1 - (days_until_departure / self.max_days)
+
+        # Logistic function combining price and urgency
+        z = -price_sensitivity * price_level + 2 * urgency
+        purchase_probability = 1 / (1 + np.exp(-z))
+
+        # Expected demand scaled to a reasonable range (e.g. up to 10 units/step)
+        expected_units = purchase_probability * 10
+        units_sold = np.random.poisson(lam=expected_units)
+
+        return units_sold
