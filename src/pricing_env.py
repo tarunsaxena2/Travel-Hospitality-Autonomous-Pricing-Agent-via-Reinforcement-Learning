@@ -93,3 +93,25 @@ class PricingEnv(gym.Env):
         units_sold = np.random.poisson(lam=expected_units)
 
         return units_sold
+    
+    def step(self, action):
+        price_level = action / (self.num_price_levels - 1)
+
+        units_sold = self._compute_demand(price_level, self.days_until_departure)
+        units_sold = min(units_sold, self.remaining_inventory)
+
+        self.remaining_inventory -= units_sold
+        self.days_until_departure -= 1
+
+        reward = price_level * units_sold
+
+        terminated = self.remaining_inventory <= 0 or self.days_until_departure <= 0
+        truncated = False
+
+        observation = np.array(
+            [self.remaining_inventory, self.days_until_departure],
+            dtype=np.float32
+        )
+        info = {"units_sold": units_sold}
+
+        return observation, reward, terminated, truncated, info
