@@ -115,3 +115,9 @@ class PricingEnv(gym.Env):
         info = {"units_sold": units_sold}
 
         return observation, reward, terminated, truncated, info
+    
+    def render(self):
+        print(
+            f"Inventory: {self.remaining_inventory} | "
+            f"Days left: {self.days_until_departure}"
+        )
