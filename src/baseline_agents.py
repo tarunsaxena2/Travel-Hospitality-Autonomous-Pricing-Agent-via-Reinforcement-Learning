@@ -5,6 +5,9 @@ class FixedPriceAgent:
     """
     Baseline agent that always selects the same fixed price level 
     for the entire season, regardless of state.
+    
+    This serves as the simplest possible baseline — a hotel/airline 
+    that never changes its price throughout the booking season.
     """
 
     def __init__(self, price_level_index=5, num_price_levels=10):
