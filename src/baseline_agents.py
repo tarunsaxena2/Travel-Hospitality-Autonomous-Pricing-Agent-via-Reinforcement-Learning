@@ -23,3 +23,7 @@ class FixedPriceAgent:
         Returns the same fixed action regardless of the observation.
         """
         return self.price_level_index
+    
+    def get_price_value(self):
+        """Returns the normalized price level (0 to 1) this agent uses."""
+        return self.price_level_index / (self.num_price_levels - 1)
