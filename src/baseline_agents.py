@@ -14,16 +14,21 @@ class TimeBasedDiscountAgent:
         self.start_price_level = start_price_level
         self.num_price_levels = num_price_levels
         self.current_price_level = start_price_level
+        self.days_elapsed = 0  # tracks how many steps/days have passed
 
     def act(self, observation):
         remaining_inventory, days_until_departure = observation
 
-        discount_factor = 0.9 ** (self.start_price_level - self.current_price_level)
-        new_price_level = int(self.start_price_level * discount_factor)
+        # Discount grows as more days elapse (10% price drop per day)
+        discount_factor = 0.9 ** self.days_elapsed
+        new_price_level = int(round(self.start_price_level * discount_factor))
         self.current_price_level = max(0, min(new_price_level, self.num_price_levels - 1))
+
+        self.days_elapsed += 1  # move to next day for the next call
 
         return self.current_price_level
 
     def reset(self):
         """Reset the agent's internal price tracking for a new episode."""
         self.current_price_level = self.start_price_level
+        self.days_elapsed = 0
