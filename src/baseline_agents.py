@@ -1,3 +1,14 @@
+"""
+baseline_agents.py
+
+Contains heuristic baseline pricing agents used for comparison against 
+RL-trained agents (Q-Learning, DQN):
+
+- FixedPriceAgent: constant price throughout the season
+- TimeBasedDiscountAgent: price decays as deadline approaches
+- DemandBasedAgent: price adjusts based on inventory-to-time ratio
+"""
+
 import numpy as np
 
 
