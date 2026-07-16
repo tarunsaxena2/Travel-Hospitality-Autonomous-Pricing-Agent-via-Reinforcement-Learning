@@ -288,3 +288,256 @@ Python, Gymnasium, PyTorch, NumPy, Pandas, Matplotlib, Seaborn
 # 🎯 Week 1 Outcome
 
 At the end of Week 1, the project successfully established a complete Reinforcement Learning foundation by designing the Dynamic Pricing problem as a Markov Decision Process (MDP), implementing a custom Gymnasium environment, and validating its behavior using a Random Agent baseline. The environment now supports realistic inventory dynamics, stochastic customer demand, reward computation, and simulation-based experimentation, providing a robust platform for implementing advanced RL algorithms in subsequent development phases.
+
+---
+
+# 📅 Week 2 Progress Timeline
+
+| Day       | Theme                                          | Status |
+| --------- | ---------------------------------------------- | :----: |
+| Monday    | Baseline Agent Development & Q-Learning Setup  |    ✅   |
+| Tuesday   | Bellman Learning & Baseline Evaluation         |    ✅   |
+| Wednesday | Q-Learning Training & Performance Benchmarking |    ✅   |
+| Thursday  | Hyperparameter Optimization & Result Analysis  |    ✅   |
+| Friday    | Finalization, Documentation & Integration      |    ✅   |
+
+---
+
+# 👥 Team Contributions
+
+---
+
+## 🟦 Member 1 — Environment & Simulation Engineer
+
+**Primary Responsibility**
+
+* Develop and validate heuristic pricing strategies for comparison with Reinforcement Learning models.
+
+### 📌 Monday
+
+* Implemented **FixedPriceAgent**
+* Created `baseline_agents.py`
+* Added constant pricing strategy
+* Integrated agent with Pricing Environment
+
+### 📌 Tuesday
+
+* Developed **TimeBasedDiscountAgent**
+* Implemented automatic 10% daily price reduction
+* Tested pricing strategy in simulation environment
+* Verified seasonal pricing behavior
+
+### 📌 Wednesday
+
+* Implemented **DemandBasedAgent**
+* Designed inventory-to-time pricing strategy
+* Tested stability over multiple simulation episodes
+* Validated adaptive pricing logic
+
+### 📌 Thursday
+
+* Finalized all heuristic pricing agents
+* Added comprehensive documentation
+* Standardized code structure
+* Verified functionality of all baseline strategies
+
+### 📌 Friday
+
+* Completed Week 2 Baseline Notebook
+* Added introduction, methodology and conclusion
+* Cleared notebook outputs
+* Prepared final notebook for GitHub
+
+**✅ Total Commits:** **5**
+
+---
+
+## 🟩 Member 2 — RL Algorithm Engineer
+
+**Primary Responsibility**
+
+* Build and optimize the Tabular Q-Learning algorithm.
+
+### 📌 Monday
+
+* Discretized state space
+* Created Inventory Buckets
+* Created Days Remaining Buckets
+* Initialized Q-table
+
+### 📌 Tuesday
+
+* Implemented Bellman Update Equation
+* Added learning rate
+* Added discount factor
+* Implemented epsilon-greedy exploration
+* Configured epsilon decay
+
+### 📌 Wednesday
+
+* Trained Q-Learning agent
+* Executed **5,000 training episodes**
+* Logged reward curve
+* Monitored training convergence
+
+### 📌 Thursday
+
+* Tuned hyperparameters
+* Evaluated multiple learning rates
+* Compared discount factors
+* Selected optimal epsilon decay schedule
+
+### 📌 Friday
+
+* Finalized `q_learning_agent.py`
+* Evaluated best model on **500 unseen episodes**
+* Cleaned notebook outputs
+* Documented final implementation
+
+**✅ Total Commits:** **5**
+
+---
+
+## 🟨 Member 3 — Analysis & Policy Evaluation
+
+**Primary Responsibility**
+
+* Evaluate heuristic strategies and compare them with Q-Learning.
+
+### 📌 Monday
+
+* Built common evaluation framework
+* Implemented reusable simulation helper
+* Standardized evaluation metrics
+
+### 📌 Tuesday
+
+* Evaluated Random Agent
+* Evaluated Fixed Price Agent
+* Evaluated Time-Based Discount Agent
+* Generated revenue comparison plots
+
+### 📌 Wednesday
+
+* Compared Q-Learning against all heuristic agents
+* Calculated:
+
+  * Mean Revenue
+  * Standard Deviation
+  * Sell-through Rate
+* Recorded benchmarking results
+
+### 📌 Thursday
+
+* Computed revenue improvement percentage
+* Compared Q-Learning with best-performing heuristic
+* Documented experimental findings
+
+### 📌 Friday
+
+* Finalized comparison notebook
+* Added complete performance summary table
+* Verified evaluation metrics
+* Cleared notebook outputs
+
+**✅ Total Commits:** **5**
+
+---
+
+## 🟥 Member 4 — Evaluation & Deployment Lead
+
+**Primary Responsibility**
+
+* Coordinate evaluation, documentation and repository integration.
+
+### 📌 Monday
+
+* Created `results_comparison.md`
+* Designed result documentation structure
+* Added comparison section templates
+
+### 📌 Tuesday
+
+* Reviewed Q-Learning implementation
+* Verified Bellman update correctness
+* Reviewed Pull Requests
+* Added technical review comments
+
+### 📌 Wednesday
+
+* Created baseline comparison tables
+* Organized Week 2 evaluation notebook
+* Documented performance metrics
+
+### 📌 Thursday
+
+* Wrote Week 2 findings
+* Explained improvements achieved by Q-Learning
+* Documented comparison with heuristic pricing strategies
+
+### 📌 Friday
+
+* Updated GitHub Kanban Board
+* Closed Week 2 Issues
+* Updated README
+* Reviewed and merged all Pull Requests
+* Completed Week 2 repository synchronization
+
+**✅ Total Commits:** **5**
+
+---
+
+# 📊 Week 2 Sprint Statistics
+
+| Metric                   |                 Value |
+| ------------------------ | --------------------: |
+| Sprint Duration          |                5 Days |
+| Team Members             |                     4 |
+| Git Commits              |                **20** |
+| GitHub Issues Completed  | **5** (Issues #6–#10) |
+| Pull Requests Reviewed   |              Multiple |
+| Heuristic Pricing Agents |           ✅ Completed |
+| Tabular Q-Learning       |           ✅ Completed |
+| Hyperparameter Tuning    |           ✅ Completed |
+| Agent Benchmarking       |           ✅ Completed |
+| Documentation            |           ✅ Completed |
+
+---
+
+# 🏆 Week 2 Deliverables
+
+✅ Fixed Price Agent
+
+✅ Time-Based Discount Agent
+
+✅ Demand-Based Pricing Agent
+
+✅ Shared Evaluation Framework
+
+✅ State Space Discretization
+
+✅ Tabular Q-Learning Implementation
+
+✅ Bellman Learning Algorithm
+
+✅ Hyperparameter Optimization
+
+✅ 5,000 Episode Training
+
+✅ 500 Episode Testing
+
+✅ Baseline vs Q-Learning Comparison
+
+✅ Revenue Performance Analysis
+
+✅ Sell-through Rate Evaluation
+
+✅ Week 2 Documentation
+
+✅ Updated GitHub Repository
+
+---
+
+# 🎯 Week 2 Outcome
+
+By the end of Week 2, the project successfully established a strong Reinforcement Learning baseline by implementing multiple heuristic pricing strategies and developing a complete Tabular Q-Learning agent. The Q-Learning model was trained, optimized through hyperparameter tuning, and rigorously evaluated against heuristic approaches using extensive simulation experiments. Performance metrics such as mean revenue, sell-through rate, and revenue improvement demonstrated that the learned policy consistently outperformed static pricing strategies, providing a solid foundation for transitioning to a Deep Q-Network (DQN) architecture in the next phase of the project. 
