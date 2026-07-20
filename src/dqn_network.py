@@ -30,3 +30,14 @@ class DQNNetwork(nn.Module):
 
     def forward(self, x):
         return self.network(x)
+
+
+def sync_target_network(policy_net, target_net):
+    """
+    Performs a hard update: copies all weights from the policy 
+    network to the target network.
+    
+    Called periodically (every N training steps) to stabilize 
+    DQN training by keeping the target Q-values fixed for a while.
+    """
+    target_net.load_state_dict(policy_net.state_dict())
