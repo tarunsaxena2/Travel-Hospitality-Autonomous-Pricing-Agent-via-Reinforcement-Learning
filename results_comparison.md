@@ -7,7 +7,19 @@ across the project sprints.
 *(To be filled in Week 2 — Random, Fixed, Time-Based Discount, Demand-Based agents)*
 
 ## 2. Q-Learning Results
-*(To be filled in Week 2 — tabular Q-Learning performance vs baselines)*
+## Agent Comparison Table (In Progress)
+
+| Agent | Mean Revenue | Std Dev | Sell-Through Rate | Status |
+|-------|-------------|---------|---------------------|--------|
+| Random | - | - | - | ✅ Complete (Week 1) |
+| Fixed | - | - | - | ✅ Complete (Week 2) |
+| Time-Based Discount | - | - | - | ✅ Complete (Week 2) |
+| Demand-Based | - | - | - | ✅ Complete (Week 2) |
+| Q-Learning | - | - | - | ✅ Complete (Week 2) |
+| DQN | - | - | - | 🚧 In Progress (Week 3) |
+
+*Note: Numerical values to be filled in once Member 3's full evaluation 
+pass is complete for all agents.*
 
 ## 3. DQN Results
 *(To be filled in Week 3 — Deep Q-Network performance vs Q-Learning and baselines)*
