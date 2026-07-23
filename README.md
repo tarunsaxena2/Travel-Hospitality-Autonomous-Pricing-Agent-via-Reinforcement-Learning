@@ -1,29 +1,159 @@
-# Travel & Hospitality — Autonomous Pricing Agent via Reinforcement Learning
+<div align="center">
 
-## Project Overview
-This project builds an autonomous dynamic pricing agent using Reinforcement 
-Learning (DQN) for the travel and hospitality industry. The goal is to train 
-an agent that outperforms heuristic pricing baselines (fixed, time-based 
-discount, demand-based) in mean episodic revenue across simulated booking seasons.
+# ✈️ Dynamic Pricing Agent for Travel & Hospitality
 
-## Team
-- Member 1 — Environment & Simulation Engineer
-- Member 2 — RL Algorithm Engineer
-- Member 3 — Analysis & Policy Evaluation
-- Member 4 — Eval & Deploy Lead 
+### Autonomous Revenue Optimization via Deep Reinforcement Learning
 
-## Tech Stack
-Python, Gymnasium, PyTorch, NumPy, Pandas, Matplotlib, Seaborn
+*An intelligent pricing engine that learns to outperform traditional heuristics through simulated booking environments.*
 
-## Status
-🚧 Project in progress — Week 1: MDP & Environment Design
-# 🚀 Week 1 — MDP Design & Gymnasium Environment
+<br>
 
-> **Sprint Goal**
->
-> Formulate the Dynamic Pricing problem as a **Markov Decision Process (MDP)**, develop a custom **Gymnasium environment**, and establish a **Random Agent baseline** for future Reinforcement Learning experiments.
+![Status](https://img.shields.io/badge/status-in%20progress-yellow?style=for-the-badge)
+![Python](https://img.shields.io/badge/python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-DQN-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![Gymnasium](https://img.shields.io/badge/Gymnasium-Env-0A66C2?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 
----
+</div>
+
+<br>
+
+## 🎯 Overview
+
+Hotels, airlines, and travel platforms lose revenue every day to static or overly simplistic pricing rules. This project designs an **autonomous Reinforcement Learning agent** — trained with **Deep Q-Networks (DQN)** — that learns to dynamically price inventory (rooms, seats, packages) across a simulated booking season.
+
+The agent is benchmarked against three classic heuristic strategies to prove it can learn pricing behavior that **maximizes mean episodic revenue** more effectively than hand-crafted rules.
+
+> **Core question:** *Can an RL agent learn pricing strategies that beat human-designed heuristics — purely from interaction and reward signal?*
+
+<br>
+
+## ⚔️ Agent vs. Baselines
+
+| Strategy | Type | Description |
+|---|---|---|
+| 🎯 **RL Agent (DQN)** | Learned | Adapts pricing policy based on demand signals, time-to-departure, and inventory state |
+| 🔒 Fixed Pricing | Heuristic | Constant price regardless of context |
+| ⏳ Time-based Discounting | Heuristic | Price decays as the booking window closes |
+| 📈 Demand-based Pricing | Heuristic | Price scales directly with observed demand |
+
+**Success metric:** Mean episodic revenue across simulated booking seasons, RL agent vs. all three baselines.
+
+<br>
+
+## 🧠 How It Works
+
+```mermaid
+flowchart LR
+    A[Booking Environment
+Gymnasium] -->|State: demand, time,
+inventory| B[DQN Agent
+PyTorch]
+    B -->|Action: set price| A
+    A -->|Reward: revenue| B
+    B --> C[Policy Evaluation
+& Analysis]
+    C --> D[Benchmark vs.
+Heuristic Baselines]
+```
+
+<br>
+
+## 🛠️ Tech Stack
+
+<div align="center">
+
+| Category | Tools |
+|---|---|
+| **Language** | Python |
+| **RL Environment** | Gymnasium |
+| **Deep Learning** | PyTorch |
+| **Data Handling** | NumPy, Pandas |
+| **Visualization** | Matplotlib, Seaborn |
+
+</div>
+
+<br>
+
+## 📂 Project Structure
+
+```
+dynamic-pricing-rl/
+├── env/                # Custom Gymnasium environment (MDP design)
+├── agents/             # DQN agent implementation
+├── baselines/          # Fixed, time-based, demand-based pricing
+├── training/           # Training loops, replay buffer, configs
+├── evaluation/         # Reward curves, revenue comparison, plots
+├── notebooks/          # Exploratory analysis
+├── requirements.txt
+└── README.md
+```
+
+<br>
+
+## 👥 Team & Roles
+
+<div align="center">
+
+| Role | Focus Area |
+|---|---|
+| 🌍 **Environment & Simulation Engineer** | MDP design, booking environment, demand simulation |
+| 🤖 **RL Algorithm Engineer** | DQN architecture, training pipeline, hyperparameter tuning |
+| 📊 **Analysis & Policy Evaluation** | Reward analysis, policy interpretability, benchmarking |
+| 🚀 **Eval & Deploy Lead** | Final evaluation suite, reproducibility, deployment packaging |
+
+</div>
+
+<br>
+
+## 🗺️ Roadmap
+
+- [x] **Week 1** — MDP formulation & environment design
+- [x] **Week 2** — DQN agent development & training
+- [x] **Week 3** — Policy evaluation & revenue benchmarking
+- [ ] **Week 4** — Final analysis, visualization & report
+
+<br>
+
+## 📈 Expected Deliverables
+
+- A fully specified MDP (state, action, reward design) for travel pricing
+- A trained DQN agent with reproducible training pipeline
+- Comparative revenue plots: RL agent vs. all heuristic baselines
+- Policy analysis explaining *what* the agent learned and *why* it works
+
+<br>
+
+## 🚀 Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/<your-org>/dynamic-pricing-rl.git
+cd dynamic-pricing-rl
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run training
+python training/train.py
+
+# Evaluate against baselines
+python evaluation/evaluate.py
+```
+
+<br>
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+<br>
+
+<div align="center">
+
+**Built for smarter, adaptive pricing in travel & hospitality — one episode at a time.**
+
+</div>
 
 # 📅 Week 1 Progress Timeline
 
@@ -541,3 +671,241 @@ At the end of Week 1, the project successfully established a complete Reinforcem
 # 🎯 Week 2 Outcome
 
 By the end of Week 2, the project successfully established a strong Reinforcement Learning baseline by implementing multiple heuristic pricing strategies and developing a complete Tabular Q-Learning agent. The Q-Learning model was trained, optimized through hyperparameter tuning, and rigorously evaluated against heuristic approaches using extensive simulation experiments. Performance metrics such as mean revenue, sell-through rate, and revenue improvement demonstrated that the learned policy consistently outperformed static pricing strategies, providing a solid foundation for transitioning to a Deep Q-Network (DQN) architecture in the next phase of the project. 
+
+# 📅 Week 3 Progress Timeline
+
+| Day       | Theme                                          | Status |
+| --------- | ----------------------------------------------- | :----: |
+| Monday    | DQN Architecture & Baseline Evaluation Setup    |    ✅   |
+| Tuesday   | Target Network & Experience Replay              |    ✅   |
+| Wednesday | Training Stability & Exploration Strategy       |    ✅   |
+| Thursday  | Full DQN Training & Performance Benchmarking    |    ✅   |
+| Friday    | Finalization, Documentation & Integration       |    ✅   |
+
+---
+
+# 👥 Team Contributions
+
+---
+
+## 🟦 Tarun Saxena — Environment & Simulation Engineer
+
+**Primary Responsibility**
+
+* Build the DQN network architecture and validate training stability.
+
+### 📌 Monday
+
+* Set up PyTorch `DQNNetwork` class
+* Defined input layer (state features)
+* Added 2 hidden layers with ReLU activation
+* Defined output layer (Q-value per discrete price action)
+
+### 📌 Tuesday
+
+* Implemented target network with periodic hard update (every N steps)
+* Verified target network weights sync correctly with policy network
+
+### 📌 Wednesday
+
+* Logged and plotted training loss curve
+* Logged and plotted episodic reward curve across DQN training steps
+* Identified signs of divergence
+
+### 📌 Thursday
+
+* Tested DQN convergence across 3 random seeds
+* Confirmed reward curve stabilizes without diverging
+* Tuned learning rate / target update frequency where needed
+
+### 📌 Friday
+
+* Finalized `train_dqn.py` training script
+* Saved best-performing model checkpoint (excluded from git via `.gitignore`)
+* Cleared notebook outputs and pushed
+
+**✅ Total Commits:** **5**
+
+---
+
+## 🟩 Vaibhav Gautam — RL Algorithm Engineer
+
+**Primary Responsibility**
+
+* Implement the full DQN algorithm: forward pass, replay buffer, exploration, and training loop.
+
+### 📌 Monday
+
+* Implemented DQN architecture forward pass in `dqn_agent.py`
+* Defined loss function (Huber loss)
+* Defined optimizer (Adam)
+
+### 📌 Tuesday
+
+* Implemented `ReplayBuffer` class with `push()` and `sample()` methods
+* Used a deque of fixed capacity
+* Tested buffer sampling returns correctly shaped batches
+
+### 📌 Wednesday
+
+* Implemented epsilon-greedy exploration strategy with exponential decay schedule
+* Integrated replay buffer and target network into the full training loop
+
+### 📌 Thursday
+
+* Trained full DQN agent for **2,000 episodes**
+* Used replay buffer and epsilon-greedy exploration
+* Saved training checkpoints every 200 episodes
+
+### 📌 Friday
+
+* Finalized `dqn_agent.py` with complete DQN implementation (network, replay buffer, epsilon-greedy, training loop)
+* Added docstrings throughout
+* Cleared outputs and pushed
+
+**✅ Total Commits:** **5**
+
+---
+
+## 🟨 Vaibhav Gautam — Analysis & Policy Evaluation
+
+**Primary Responsibility**
+
+* Evaluate the Q-Learning baseline and the trained DQN agent, and analyze learned pricing behavior.
+
+### 📌 Monday
+
+* Loaded best Q-Learning agent from Week 2
+* Set up evaluation harness to run any trained agent for a configurable number of episodes
+
+### 📌 Tuesday
+
+* Ran trained Q-Learning agent for **500 evaluation episodes**
+* Plotted price trajectory over time for 3 sample episodes
+
+### 📌 Wednesday
+
+* Analyzed policy behavior on Q-Learning agent
+* Checked whether it discounts price near the deadline
+* Identified inventory-clearing patterns from sample trajectories
+
+### 📌 Thursday
+
+* Calculated inventory sell-through rate for trained DQN agent
+* Calculated revenue per episode across **500 test episodes**
+
+### 📌 Friday
+
+* Wrote 150-word analysis of the learned DQN pricing policy
+* Evaluated whether the agent learns to drop prices near the deadline to clear remaining stock
+* Pushed clean notebook
+
+**✅ Total Commits:** **5**
+
+---
+
+## 🟥 Tarun Saxena — Evaluation & Deployment Lead
+
+**Primary Responsibility**
+
+* Track experiment results, coordinate comparisons, and manage repository documentation.
+
+### 📌 Monday
+
+* Created `model_results.md` file to track all experiment results
+* Added table headers: Agent | Mean Revenue | Std Dev | Sell-through % | Notes
+* Pushed to main
+
+### 📌 Tuesday
+
+* Recorded Week 3 Day 1–2 results in `model_results.md`
+* Added tabular Q-Learning final CV results
+* Wrote notes on training stability observed so far
+
+### 📌 Wednesday
+
+* Began Q-Learning vs DQN comparison table in `results_comparison.md`
+* Added rows: Random, Fixed, Discount, Demand-based, Q-Learning, DQN (in progress)
+* Filled in available results
+
+### 📌 Thursday
+
+* Finalized comparison table with all model results
+* Added conclusion paragraph on which agent wins, by how much, and why
+* Committed to main
+
+### 📌 Friday
+
+* Updated Kanban board — moved all Week 3 Issues to Done
+* Added Week 3 Summary to README (DQN architecture, training stability, revenue vs Q-Learning)
+* Reviewed and merged all Week 3 Pull Requests
+
+**✅ Total Commits:** **5**
+
+---
+
+# 📊 Week 3 Sprint Statistics
+
+| Metric                              |       Value |
+| ------------------------------------ | ----------: |
+| Sprint Duration                      |      5 Days |
+| Team Members                         |           2 |
+| Git Commits                          |      **20** |
+| GitHub Issues Completed              | **5** (Issues #11–#15) |
+| Pull Requests Reviewed               |    Multiple |
+| DQN Network Architecture             | ✅ Completed |
+| Target Network                       | ✅ Completed |
+| Experience Replay Buffer             | ✅ Completed |
+| Epsilon-Greedy Exploration           | ✅ Completed |
+| Full DQN Training (2,000 episodes)   | ✅ Completed |
+| DQN vs Q-Learning Comparison         | ✅ Completed |
+| Documentation                        | ✅ Completed |
+
+---
+
+# 🏆 Week 3 Deliverables
+
+✅ PyTorch DQN Network Architecture
+
+✅ Huber Loss & Adam Optimizer
+
+✅ Target Network with Periodic Sync
+
+✅ Experience Replay Buffer
+
+✅ Epsilon-Greedy Exploration with Decay
+
+✅ Full DQN Training Loop
+
+✅ Convergence Testing Across Multiple Seeds
+
+✅ 2,000 Episode DQN Training
+
+✅ 500 Episode DQN Evaluation
+
+✅ Q-Learning vs DQN Comparison Table
+
+✅ Sell-through Rate & Revenue Analysis
+
+✅ Learned Policy Behavior Analysis
+
+✅ Model Results Tracking Document
+
+✅ Week 3 Documentation
+
+✅ Updated GitHub Repository
+
+---
+
+# 🎯 Week 3 Outcome
+
+By the end of Week 3, the project successfully transitioned from tabular Q-Learning to a full Deep Q-Network (DQN) capable of handling the complete continuous state space. A PyTorch-based DQN architecture was implemented with a target network and experience replay buffer to stabilize training, and an epsilon-greedy exploration strategy was integrated into the full training loop. The DQN agent was trained for 2,000 episodes, validated for convergence stability across multiple random seeds, and rigorously evaluated against the tabular Q-Learning baseline. Results confirmed that the DQN agent outperformed tabular Q-Learning on the full state space, with the learned policy demonstrating deadline-aware price discounting behavior consistent with effective inventory clearance — setting a strong foundation for further model refinement in subsequent phases.
+
+---
+
+# 👥 Contributor Role Mapping
+
+| Contributor | Roles Performed |
+| ------------ | ---------------- |
+| **Tarun Saxena** | Environment & Simulation Engineer (Member 1) + Evaluation & Deployment Lead (Member 4) |
+| **Vaibhav Gautam** | RL Algorithm Engineer (Member 2) + Analysis & Policy Evaluation (Member 3) |
