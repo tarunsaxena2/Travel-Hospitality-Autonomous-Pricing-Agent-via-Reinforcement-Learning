@@ -1,3 +1,20 @@
+"""
+dqn_agent.py
+
+Complete DQN implementation for the dynamic pricing environment.
+
+Components:
+- DQNNetwork: feedforward Q-value approximator (2 hidden layers, ReLU)
+- DQNAgent: wraps the network with epsilon-greedy exploration,
+  a target network for stable targets, and a train_step() method
+  that samples from a ReplayBuffer and performs one gradient update.
+
+Usage:
+    agent = DQNAgent()
+    action = agent.act(obs)          # epsilon-greedy (training)
+    action = agent.act_greedy(obs)   # greedy (evaluation)
+    loss = agent.train_step(buffer, batch_size=64)
+"""
 import torch
 import torch.nn as nn
 import torch.optim as optim
