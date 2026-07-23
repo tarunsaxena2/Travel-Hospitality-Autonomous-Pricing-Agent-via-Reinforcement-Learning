@@ -109,10 +109,9 @@ dynamic-pricing-rl/
 ## 🗺️ Roadmap
 
 - [x] **Week 1** — MDP formulation & environment design
-- [ ] **Week 2** — Baseline heuristic implementations
-- [ ] **Week 3** — DQN agent development & training
-- [ ] **Week 4** — Policy evaluation & revenue benchmarking
-- [ ] **Week 5** — Final analysis, visualization & report
+- [x] **Week 2** — DQN agent development & training
+- [x] **Week 3** — Policy evaluation & revenue benchmarking
+- [ ] **Week 4** — Final analysis, visualization & report
 
 <br>
 
