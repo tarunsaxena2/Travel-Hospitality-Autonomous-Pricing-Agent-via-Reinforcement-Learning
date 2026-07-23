@@ -1,29 +1,160 @@
-# Travel & Hospitality — Autonomous Pricing Agent via Reinforcement Learning
+<div align="center">
 
-## Project Overview
-This project builds an autonomous dynamic pricing agent using Reinforcement 
-Learning (DQN) for the travel and hospitality industry. The goal is to train 
-an agent that outperforms heuristic pricing baselines (fixed, time-based 
-discount, demand-based) in mean episodic revenue across simulated booking seasons.
+# ✈️ Dynamic Pricing Agent for Travel & Hospitality
 
-## Team
-- Member 1 — Environment & Simulation Engineer
-- Member 2 — RL Algorithm Engineer
-- Member 3 — Analysis & Policy Evaluation
-- Member 4 — Eval & Deploy Lead 
+### Autonomous Revenue Optimization via Deep Reinforcement Learning
 
-## Tech Stack
-Python, Gymnasium, PyTorch, NumPy, Pandas, Matplotlib, Seaborn
+*An intelligent pricing engine that learns to outperform traditional heuristics through simulated booking environments.*
 
-## Status
-🚧 Project in progress — Week 1: MDP & Environment Design
-# 🚀 Week 1 — MDP Design & Gymnasium Environment
+<br>
 
-> **Sprint Goal**
->
-> Formulate the Dynamic Pricing problem as a **Markov Decision Process (MDP)**, develop a custom **Gymnasium environment**, and establish a **Random Agent baseline** for future Reinforcement Learning experiments.
+![Status](https://img.shields.io/badge/status-in%20progress-yellow?style=for-the-badge)
+![Python](https://img.shields.io/badge/python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-DQN-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![Gymnasium](https://img.shields.io/badge/Gymnasium-Env-0A66C2?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 
----
+</div>
+
+<br>
+
+## 🎯 Overview
+
+Hotels, airlines, and travel platforms lose revenue every day to static or overly simplistic pricing rules. This project designs an **autonomous Reinforcement Learning agent** — trained with **Deep Q-Networks (DQN)** — that learns to dynamically price inventory (rooms, seats, packages) across a simulated booking season.
+
+The agent is benchmarked against three classic heuristic strategies to prove it can learn pricing behavior that **maximizes mean episodic revenue** more effectively than hand-crafted rules.
+
+> **Core question:** *Can an RL agent learn pricing strategies that beat human-designed heuristics — purely from interaction and reward signal?*
+
+<br>
+
+## ⚔️ Agent vs. Baselines
+
+| Strategy | Type | Description |
+|---|---|---|
+| 🎯 **RL Agent (DQN)** | Learned | Adapts pricing policy based on demand signals, time-to-departure, and inventory state |
+| 🔒 Fixed Pricing | Heuristic | Constant price regardless of context |
+| ⏳ Time-based Discounting | Heuristic | Price decays as the booking window closes |
+| 📈 Demand-based Pricing | Heuristic | Price scales directly with observed demand |
+
+**Success metric:** Mean episodic revenue across simulated booking seasons, RL agent vs. all three baselines.
+
+<br>
+
+## 🧠 How It Works
+
+```mermaid
+flowchart LR
+    A[Booking Environment
+Gymnasium] -->|State: demand, time,
+inventory| B[DQN Agent
+PyTorch]
+    B -->|Action: set price| A
+    A -->|Reward: revenue| B
+    B --> C[Policy Evaluation
+& Analysis]
+    C --> D[Benchmark vs.
+Heuristic Baselines]
+```
+
+<br>
+
+## 🛠️ Tech Stack
+
+<div align="center">
+
+| Category | Tools |
+|---|---|
+| **Language** | Python |
+| **RL Environment** | Gymnasium |
+| **Deep Learning** | PyTorch |
+| **Data Handling** | NumPy, Pandas |
+| **Visualization** | Matplotlib, Seaborn |
+
+</div>
+
+<br>
+
+## 📂 Project Structure
+
+```
+dynamic-pricing-rl/
+├── env/                # Custom Gymnasium environment (MDP design)
+├── agents/             # DQN agent implementation
+├── baselines/          # Fixed, time-based, demand-based pricing
+├── training/           # Training loops, replay buffer, configs
+├── evaluation/         # Reward curves, revenue comparison, plots
+├── notebooks/          # Exploratory analysis
+├── requirements.txt
+└── README.md
+```
+
+<br>
+
+## 👥 Team & Roles
+
+<div align="center">
+
+| Role | Focus Area |
+|---|---|
+| 🌍 **Environment & Simulation Engineer** | MDP design, booking environment, demand simulation |
+| 🤖 **RL Algorithm Engineer** | DQN architecture, training pipeline, hyperparameter tuning |
+| 📊 **Analysis & Policy Evaluation** | Reward analysis, policy interpretability, benchmarking |
+| 🚀 **Eval & Deploy Lead** | Final evaluation suite, reproducibility, deployment packaging |
+
+</div>
+
+<br>
+
+## 🗺️ Roadmap
+
+- [x] **Week 1** — MDP formulation & environment design
+- [ ] **Week 2** — Baseline heuristic implementations
+- [ ] **Week 3** — DQN agent development & training
+- [ ] **Week 4** — Policy evaluation & revenue benchmarking
+- [ ] **Week 5** — Final analysis, visualization & report
+
+<br>
+
+## 📈 Expected Deliverables
+
+- A fully specified MDP (state, action, reward design) for travel pricing
+- A trained DQN agent with reproducible training pipeline
+- Comparative revenue plots: RL agent vs. all heuristic baselines
+- Policy analysis explaining *what* the agent learned and *why* it works
+
+<br>
+
+## 🚀 Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/<your-org>/dynamic-pricing-rl.git
+cd dynamic-pricing-rl
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run training
+python training/train.py
+
+# Evaluate against baselines
+python evaluation/evaluate.py
+```
+
+<br>
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+<br>
+
+<div align="center">
+
+**Built for smarter, adaptive pricing in travel & hospitality — one episode at a time.**
+
+</div>
 
 # 📅 Week 1 Progress Timeline
 
