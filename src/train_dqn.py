@@ -72,3 +72,6 @@ if __name__ == "__main__":
     agent, rewards, losses = train_dqn(n_episodes=2000)
     print("Training complete.")
     print("Final 100-episode avg reward:", np.mean(rewards[-100:]))
+    best_ckpt_path = "../outputs/dqn_checkpoints/dqn_best.pt"
+    torch.save(agent.policy_net.state_dict(), best_ckpt_path)
+    print(f"Best model checkpoint saved: {best_ckpt_path}")
