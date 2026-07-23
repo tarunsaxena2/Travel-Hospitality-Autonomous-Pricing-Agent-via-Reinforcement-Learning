@@ -1,15 +1,18 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="Dynamic Pricing Agent for Travel & Hospitality" width="100%"/>
+# ✈️ Dynamic Pricing Agent for Travel & Hospitality
 
-<br><br>
+### Autonomous Revenue Optimization via Deep Reinforcement Learning
+
+*An intelligent pricing engine that learns to outperform traditional heuristics through simulated booking environments.*
+
+<br>
 
 ![Status](https://img.shields.io/badge/status-in%20progress-yellow?style=for-the-badge)
 ![Python](https://img.shields.io/badge/python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-DQN-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 ![Gymnasium](https://img.shields.io/badge/Gymnasium-Env-0A66C2?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
-![Made with](https://img.shields.io/badge/made%20with-%E2%9D%A4-red?style=for-the-badge)
 
 </div>
 
@@ -40,11 +43,19 @@ The agent is benchmarked against three classic heuristic strategies to prove it 
 
 ## 🧠 How It Works
 
-<div align="center">
-<img src="assets/architecture.svg" alt="RL training loop architecture" width="100%"/>
-</div>
-
-The agent observes the booking environment's state (demand signal, time-to-departure, remaining inventory), selects a **price** as its action, and receives **revenue** as its reward. Over thousands of simulated episodes, it learns a pricing policy that is then benchmarked against the heuristic baselines.
+```mermaid
+flowchart LR
+    A[Booking Environment
+Gymnasium] -->|State: demand, time,
+inventory| B[DQN Agent
+PyTorch]
+    B -->|Action: set price| A
+    A -->|Reward: revenue| B
+    B --> C[Policy Evaluation
+& Analysis]
+    C --> D[Benchmark vs.
+Heuristic Baselines]
+```
 
 <br>
 
@@ -97,18 +108,10 @@ dynamic-pricing-rl/
 
 ## 🗺️ Roadmap
 
-<div align="center">
-
-![Progress](https://img.shields.io/badge/progress-Week%201%20of%205-orange?style=flat-square)
-![Completion](https://img.shields.io/badge/completion-20%25-yellow?style=flat-square)
-
-</div>
-
 - [x] **Week 1** — MDP formulation & environment design
-- [ ] **Week 2** — Baseline heuristic implementations
-- [ ] **Week 3** — DQN agent development & training
-- [ ] **Week 4** — Policy evaluation & revenue benchmarking
-- [ ] **Week 5** — Final analysis, visualization & report
+- [x] **Week 2** — DQN agent development & training
+- [x] **Week 3** — Policy evaluation & revenue benchmarking
+- [ ] **Week 4** — Final analysis, visualization & report
 
 <br>
 
