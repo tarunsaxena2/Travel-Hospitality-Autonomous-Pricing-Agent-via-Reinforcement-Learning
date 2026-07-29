@@ -439,7 +439,7 @@ elif page == "👥 Team & Project Info":
     team_df = pd.DataFrame(
         {
             "Member": ["Member 1", "Member 2", "Member 3", "Member 4"],
-            "Name": ["Tarun Saxena", "Vaibhav Gautam", "—", "Tarun Saxena"],
+            "Name": ["Tarun Saxena", "Vaibhav Gautam", "Vaibhav Gautam", "Tarun Saxena"],
             "Role": [
                 "Environment & Simulation Engineer",
                 "RL Algorithm Engineer",
