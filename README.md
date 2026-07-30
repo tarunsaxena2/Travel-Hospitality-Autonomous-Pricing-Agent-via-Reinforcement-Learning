@@ -124,22 +124,76 @@ dynamic-pricing-rl/
 
 <br>
 
+---
+
 ## 🚀 Getting Started
 
+### Prerequisites
+- Python 3.10+
+- Git
+
+### Installation
+
 ```bash
-# Clone the repository
-git clone https://github.com/<your-org>/dynamic-pricing-rl.git
-cd dynamic-pricing-rl
+# 1. Clone the repository
+git clone <repo-url>
+cd Travel-Hospitality-Autonomous-Pricing-Agent-via-Reinforcement-Learning
 
-# Install dependencies
+# 2. Create and activate a virtual environment
+python -m venv venv
+.\venv\Scripts\Activate.ps1        # Windows PowerShell
+
+# 3. Install dependencies
 pip install -r requirements.txt
-
-# Run training
-python training/train.py
-
-# Evaluate against baselines
-python evaluation/evaluate.py
 ```
+
+---
+
+## 📓 Running the Project
+
+Notebooks are located in `notebooks/` and are designed to be run **in sequence**:
+
+| Order | Notebook | Description |
+|:-----:|----------|--------------|
+| 1️⃣ | `week1_env_design.ipynb` | MDP formulation & custom Gym environment |
+| 2️⃣ | `week2_baselines.ipynb` | Heuristic baseline pricing agents |
+| 3️⃣ | `week2_qlearning.ipynb` | Tabular Q-Learning implementation |
+| 4️⃣ | `week3_dqn.ipynb` | Deep Q-Network (DQN) training |
+| 5️⃣ | `week4_evaluation.ipynb` | Large-scale evaluation & statistical testing |
+| 6️⃣ | `final_dashboard.ipynb` | Complete project summary & results |
+
+**Interactive dashboard** (optional):
+```bash
+streamlit run app.py
+```
+
+---
+
+## 📊 Results
+
+Full agent comparison tables and statistical analysis are available in:
+- [`results_comparison.md`](./results_comparison.md) — baseline vs. Q-Learning vs. DQN comparison
+- [`model_results.md`](./model_results.md) — detailed experiment tracking
+
+> Adaptive pricing strategies (time-based, demand-based, and learned policies) consistently outperform static pricing across 1,000 simulated booking seasons, with statistically significant improvements confirmed via paired t-testing.
+
+---
+
+## 👥 Team
+
+| # | Member | Role |
+|:-:|--------|------|
+| 01 | **Tarun Saxena** | Environment & Simulation Engineer |
+| 02 | **Vaibhav Gautam** | RL Algorithm Engineer |
+| 03 | **Vaibhav Gautam** | Analysis & Policy Evaluation |
+| 04 | **Tarun Saxena** | Eval & Deploy Lead |
+
+---
+
+<p align="center">
+  <sub>Built with Python · Gymnasium · PyTorch · Streamlit</sub><br>
+  <sub>Infotact Solutions & Co. — Bengaluru, Karnataka</sub>
+</p>
 
 <br>
 
@@ -670,7 +724,7 @@ At the end of Week 1, the project successfully established a complete Reinforcem
 
 # 🎯 Week 2 Outcome
 
-By the end of Week 2, the project successfully established a strong Reinforcement Learning baseline by implementing multiple heuristic pricing strategies and developing a complete Tabular Q-Learning agent. The Q-Learning model was trained, optimized through hyperparameter tuning, and rigorously evaluated against heuristic approaches using extensive simulation experiments. Performance metrics such as mean revenue, sell-through rate, and revenue improvement demonstrated that the learned policy consistently outperformed static pricing strategies, providing a solid foundation for transitioning to a Deep Q-Network (DQN) architecture in the next phase of the project. 
+By the end of Week 2, the project successfully established a strong Reinforcement Learning baseline by implementing multiple heuristic pricing strategies and developing a complete Tabular Q-Learning agent. The Q-Learning model was trained, optimized through hyperparameter tuning, and rigorously evaluated against heuristic approaches using extensive simulation experiments. Performance metrics such as mean revenue, sell-through rate, and revenue improvement demonstrated that the learned policy consistently outperformed static pricing strategies, providing a solid foundation for transitioning to a Deep Q-Network (DQN) architecture in the next phase of the project.
 
 # 📅 Week 3 Progress Timeline
 
@@ -902,6 +956,238 @@ By the end of Week 2, the project successfully established a strong Reinforcemen
 By the end of Week 3, the project successfully transitioned from tabular Q-Learning to a full Deep Q-Network (DQN) capable of handling the complete continuous state space. A PyTorch-based DQN architecture was implemented with a target network and experience replay buffer to stabilize training, and an epsilon-greedy exploration strategy was integrated into the full training loop. The DQN agent was trained for 2,000 episodes, validated for convergence stability across multiple random seeds, and rigorously evaluated against the tabular Q-Learning baseline. Results confirmed that the DQN agent outperformed tabular Q-Learning on the full state space, with the learned policy demonstrating deadline-aware price discounting behavior consistent with effective inventory clearance — setting a strong foundation for further model refinement in subsequent phases.
 
 ---
+# 📅 Week 4 Progress Timeline
+
+| Day       | Theme                                              | Status |
+| --------- | --------------------------------------------------- | :----: |
+| Monday    | Evaluation Harness & Dashboard Skeleton              |    ✅   |
+| Tuesday   | Large-Scale Agent Simulation & Sensitivity Testing   |    ✅   |
+| Wednesday | Statistical Analysis & Edge Case Identification      |    ✅   |
+| Thursday  | Deployment Readiness & Business Recommendations      |    ✅   |
+| Friday    | Finalization, Documentation & v1.0.0 Release         |    ✅   |
+
+---
+
+# 👥 Team Contributions
+
+---
+
+## 🟦 Tarun Saxena — Environment & Simulation Engineer
+
+**Primary Responsibility**
+
+* Build the large-scale evaluation harness and validate final results for production readiness.
+
+### 📌 Monday
+
+* Set up `week4_evaluation.ipynb`
+* Built a 1,000-episode simulation harness
+* Made harness capable of running any agent (heuristic, Q-Learning, or DQN)
+* Supported evaluation across full booking seasons
+
+### 📌 Tuesday
+
+* Ran all agents (Random, Fixed, Discount, Demand-based, Q-Learning, DQN)
+* Simulated **1,000 booking seasons** per agent
+* Stored per-episode revenue for all agents
+
+### 📌 Wednesday
+
+* Aggregated 1,000-season results
+* Computed mean, median, and standard deviation of revenue per agent
+* Ran a paired t-test comparing DQN against the best baseline
+
+### 📌 Thursday
+
+* Finalized the 1,000-season evaluation
+* Wrote a 150-word conclusion on whether DQN reliably outperforms Q-Learning and heuristics at scale
+* Discussed implications for production deployment
+
+### 📌 Friday
+
+* Final review of all `src/` Python files: `pricing_env.py`, `baseline_agents.py`, `q_learning_agent.py`, `dqn_agent.py`
+* Ensured all functions have docstrings
+* Checked PEP8 compliance
+* Pushed final versions
+
+**✅ Total Commits:** **5**
+
+---
+
+## 🟩 Vaibhav Gautam — RL Algorithm Engineer
+
+**Primary Responsibility**
+
+* Produce all comparison visualizations and finalize evaluation notebooks.
+
+### 📌 Monday
+
+* Computed trained DQN agent's price trajectory across multiple sample seasons using matplotlib
+* Prepared plotting utilities for later comparison charts
+
+### 📌 Tuesday
+
+* Plotted revenue-per-episode distribution comparison across all agents using a violin plot
+* Used distinct colors per agent and added legend
+
+### 📌 Wednesday
+
+* Plotted inventory depletion curves over time for DQN vs the best heuristic agent
+* Overlaid both curves on the same figure
+* Saved as `inventory_depletion.png`
+
+### 📌 Thursday
+
+* Finalized all visualization plots (price trajectories, revenue distributions, inventory depletion)
+* Saved all PNGs to `outputs/`
+* Cleared notebook outputs and pushed clean notebook
+
+### 📌 Friday
+
+* Final review of all evaluation notebooks
+* Cleared all outputs from Week 4 notebooks
+* Verified all PNG outputs are saved in `outputs/`
+* Pushed all clean notebooks to GitHub
+
+**✅ Total Commits:** **5**
+
+---
+
+## 🟨 Vaibhav Gautam — Analysis & Policy Evaluation
+
+**Primary Responsibility**
+
+* Stress-test the reward function and translate policy behavior into safety recommendations.
+
+### 📌 Monday
+
+* Loaded the best trained agents
+* Began testing reward function sensitivity by varying upper/lower price safety bounds a Revenue Manager might set
+
+### 📌 Tuesday
+
+* Tested agent behavior under different demand elasticity assumptions (more vs less price-sensitive customers)
+* Recorded how each agent's revenue responds
+
+### 📌 Wednesday
+
+* Identified edge cases where the RL policy could behave detrimentally (e.g., pricing near zero to force a sale)
+* Documented each case with supporting trajectory examples
+
+### 📌 Thursday
+
+* Wrote safety-bound recommendations for the Revenue Manager persona
+* Recommended min/max price bounds that prevent detrimental behavior while preserving most of the revenue gain
+
+### 📌 Friday
+
+* Cleared outputs from the sensitivity analysis notebook
+* Final review of edge-case documentation and safety-bound recommendations
+* Pushed all final Week 4 files to branch
+
+**✅ Total Commits:** **5**
+
+---
+
+## 🟥 Tarun Saxena — Evaluation & Deployment Lead
+
+**Primary Responsibility**
+
+* Build the final business dashboard and deliver a production-ready repository.
+
+### 📌 Monday
+
+* Created `final_dashboard.ipynb`
+* Added section headers: Project Summary, Environment Design, Baseline vs Q-Learning vs DQN, Policy Analysis, Business Recommendations
+* Pushed skeleton to GitHub
+
+### 📌 Tuesday
+
+* In `final_dashboard.ipynb`: added Section 1 — Project Summary
+* Included project goal, team members, tech stack, MDP formulation, timeline table
+* Used formatted markdown cells
+
+### 📌 Wednesday
+
+* In `final_dashboard.ipynb`: added Section 2 — Model Performance
+* Included revenue comparison table across all agents, price trajectory charts, and statistical significance results
+
+### 📌 Thursday
+
+* In `final_dashboard.ipynb`: added Section 3 — Business Recommendations
+* Included recommended safety bounds, deployment readiness assessment, and monitoring guidance for the Revenue Manager
+
+### 📌 Friday
+
+* Wrote complete `README.md`: project overview, MDP formulation, setup instructions, how to run each notebook, results summary (final agent, revenue improvement, safety bounds), team credits
+* Cleared all dashboard outputs
+* Closed all 20 GitHub Issues and moved all to Done on Kanban
+* Final merge of all branches into main
+* Tagged final release: **v1.0.0**
+
+**✅ Total Commits:** **5**
+
+---
+
+# 📊 Week 4 Sprint Statistics
+
+| Metric                              |       Value |
+| ------------------------------------ | ----------: |
+| Sprint Duration                      |      5 Days |
+| Team Members                         |           2 |
+| Git Commits                          |      **20** |
+| GitHub Issues Completed              | **5** (Issues #16–#20) |
+| Pull Requests Reviewed               |    Multiple |
+| 1,000-Episode Evaluation Harness     | ✅ Completed |
+| Full Agent Comparison (6 agents)     | ✅ Completed |
+| Statistical Significance Testing     | ✅ Completed |
+| Reward Sensitivity & Elasticity Tests| ✅ Completed |
+| Edge Case Documentation              | ✅ Completed |
+| Business Dashboard                   | ✅ Completed |
+| Final README & v1.0.0 Release        | ✅ Completed |
+
+---
+
+# 🏆 Week 4 Deliverables
+
+✅ 1,000-Episode Simulation Harness
+
+✅ Full Evaluation of All 6 Agents (Random, Fixed, Discount, Demand-based, Q-Learning, DQN)
+
+✅ Revenue Distribution Violin Plots
+
+✅ Inventory Depletion Comparison Charts
+
+✅ Statistical Significance Testing (Paired t-test)
+
+✅ Demand Elasticity Robustness Testing
+
+✅ Detrimental Edge Case Documentation
+
+✅ Revenue Manager Safety-Bound Recommendations
+
+✅ Final Business Dashboard Notebook
+
+✅ Deployment Readiness Assessment
+
+✅ PEP8-Compliant, Fully Documented Source Code
+
+✅ Complete Project README
+
+✅ All GitHub Issues Closed
+
+✅ Final Repository Merge
+
+✅ **v1.0.0 Release Tagged**
+
+---
+
+# 🎯 Week 4 Outcome
+
+By the end of Week 4, the project reached full completion with a production-ready deliverable. Every pricing agent developed across the sprint — Random, Fixed, Time-Based Discount, Demand-Based, tabular Q-Learning, and DQN — was evaluated across 1,000 simulated booking seasons, with statistically significant results confirming DQN's advantage at scale. The reward function was stress-tested under varying price safety bounds and demand elasticity assumptions, surfacing edge cases where unconstrained RL pricing could behave detrimentally, and translating those findings into concrete safety-bound recommendations for a Revenue Manager persona. A complete business dashboard was assembled summarizing project goals, model performance, and deployment guidance, the source codebase was cleaned to PEP8 standards with full documentation, and the repository was finalized with a comprehensive README, all issues closed, and tagged as the **v1.0.0** release — marking the project's transition from research prototype to a deployment-ready dynamic pricing system.
+
+---
+
 
 # 👥 Contributor Role Mapping
 
