@@ -1,7 +1,7 @@
 """
 baseline_agents.py
 
-Contains heuristic baseline pricing agents used for comparison against 
+Contains heuristic baseline pricing agents used for comparison against
 RL-trained agents (Q-Learning, DQN):
 
 - FixedPriceAgent: constant price throughout the season
@@ -9,15 +9,13 @@ RL-trained agents (Q-Learning, DQN):
 - DemandBasedAgent: price adjusts based on inventory-to-time ratio
 """
 
-import numpy as np
-
 
 class FixedPriceAgent:
     """
-    Baseline agent that always selects the same fixed price level 
+    Baseline agent that always selects the same fixed price level
     for the entire season, regardless of state.
-    
-    This serves as the simplest possible baseline — a hotel/airline 
+
+    This serves as the simplest possible baseline — a hotel/airline
     that never changes its price throughout the booking season.
     """
 
@@ -35,11 +33,11 @@ class FixedPriceAgent:
 
 class TimeBasedDiscountAgent:
     """
-    Baseline agent that reduces price by 10% each day as the 
+    Baseline agent that reduces price by 10% each day as the
     deadline (days_until_departure) approaches.
-    
-    Simulates common airline/hotel behavior: prices drop as the 
-    departure date nears to encourage last-minute bookings and 
+
+    Simulates common airline/hotel behavior: prices drop as the
+    departure date nears to encourage last-minute bookings and
     clear remaining inventory.
     """
 
@@ -65,13 +63,14 @@ class TimeBasedDiscountAgent:
         self.current_price_level = self.start_price_level
         self.days_elapsed = 0
 
+
 class DemandBasedAgent:
     """
-    Baseline agent that adjusts price based on the ratio of 
+    Baseline agent that adjusts price based on the ratio of
     remaining inventory to remaining time.
-    
-    Logic: If inventory is high relative to days left (slow sales), 
-    lower the price to stimulate demand. If inventory is low relative 
+
+    Logic: If inventory is high relative to days left (slow sales),
+    lower the price to stimulate demand. If inventory is low relative
     to days left (fast sales / high demand), raise the price.
     """
 
@@ -87,7 +86,9 @@ class DemandBasedAgent:
         days_left = max(days_until_departure, 1)
 
         # Ratio: how much inventory remains per day left, normalized
-        inventory_time_ratio = (remaining_inventory / self.max_inventory) / (days_left / self.max_days)
+        inventory_ratio = remaining_inventory / self.max_inventory
+        time_ratio = days_left / self.max_days
+        inventory_time_ratio = inventory_ratio / time_ratio
 
         # High ratio (too much inventory for time left) -> lower price
         # Low ratio (inventory selling fast) -> higher price

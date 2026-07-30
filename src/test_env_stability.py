@@ -1,5 +1,4 @@
 from pricing_env import PricingEnv
-import numpy as np
 
 env = PricingEnv()
 num_episodes = 100
