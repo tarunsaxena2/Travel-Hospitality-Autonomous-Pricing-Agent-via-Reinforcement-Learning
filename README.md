@@ -74,19 +74,75 @@ Heuristic Baselines]
 </div>
 
 <br>
-
 ## 📂 Project Structure
 
 ```
-dynamic-pricing-rl/
-├── env/                # Custom Gymnasium environment (MDP design)
-├── agents/             # DQN agent implementation
-├── baselines/          # Fixed, time-based, demand-based pricing
-├── training/           # Training loops, replay buffer, configs
-├── evaluation/         # Reward curves, revenue comparison, plots
-├── notebooks/          # Exploratory analysis
+Travel-Hospitality-Autonomous-Pricing-Agent-via-Reinforcement-Learning/
+│
+├── app.py                          # Streamlit business dashboard (interactive)
+├── README.md
 ├── requirements.txt
-└── README.md
+├── architecture.svg                # System architecture diagram
+├── banner.svg                      # README banner graphic
+│
+├── results_comparison.md           # Baseline vs Q-Learning vs DQN comparison
+├── model_results.md                # Experiment tracking across all agents
+├── progress_tracker.md             # Team commit/progress log
+├── week2_qlearning_review.md       # Q-Learning implementation review notes
+├── AGENTS.md                       # Team role definitions
+│
+├── .antigravity/
+│   └── rules.md                    # Project development rules
+├── .gemini/antigravity/brain/
+│   ├── project_context.md          # High-level project context
+│   └── mdp_definition.md           # MDP formulation reference
+│
+├── notebooks/                      # Run in sequence, Week 1 → Final
+│   ├── NOTEBOOK_SETUP.md
+│   ├── week1_env_design.ipynb          # MDP formulation & environment build
+│   ├── week1_random_agent.ipynb        # Random-agent baseline
+│   ├── week2_baselines.ipynb           # Heuristic baseline agents
+│   ├── week2_qlearning.ipynb           # Tabular Q-Learning
+│   ├── week3_dqn.ipynb                 # Deep Q-Network training
+│   ├── week4_evaluation.ipynb          # 1,000-episode statistical evaluation
+│   └── final_dashboard.ipynb           # Full project summary notebook
+│
+├── src/                             # Core source modules
+│   ├── pricing_env.py                  # Custom Gymnasium environment
+│   ├── baseline_agents.py              # FixedPrice / TimeBasedDiscount / DemandBased
+│   ├── random_agent.py                 # Random-action baseline
+│   ├── q_learning_agent.py             # Tabular Q-Learning agent
+│   ├── dqn_network.py                  # PyTorch DQN architecture
+│   ├── dqn_agent.py                    # DQN agent (training loop logic)
+│   ├── replay_buffer.py                # Experience replay buffer
+│   ├── train_dqn.py                    # DQN training entry point
+│   ├── training_monitor.py             # Loss/reward curve monitoring
+│   ├── eval_utils.py                   # Shared evaluation helpers
+│   ├── plotting_utils.py               # Shared plotting helpers
+│   ├── pricing_utils.py                # Shared pricing helper functions
+│   ├── test_env_stability.py           # Environment stress test
+│   ├── test_fixed_agent.py             # FixedPriceAgent unit test
+│   ├── test_discount_agent.py          # TimeBasedDiscountAgent unit test
+│   └── test_dqn_convergence.py         # DQN convergence test across seeds
+│
+├── tests/                           # Formal test suite
+│   ├── test_env.py
+│   └── test_pricing_utils.py
+│
+└── outputs/                         # Generated plots & saved artifacts
+    ├── qlearning_training_curve.png
+    ├── dqn_convergence_curves.png
+    ├── dqn_policy_analysis.png
+    ├── dqn_multi_season_trajectories.png
+    ├── qlearning_policy_behavior.png
+    ├── qlearning_sample_trajectories.png
+    ├── baseline_comparison_boxplot.png
+    ├── all_agents_violin_comparison.png
+    ├── random_agent_revenue_histogram.png
+    ├── sample_episode_trajectory.png
+    ├── inventory_depletion.png
+    ├── trained_qtable.npy
+    └── trained_qtable_best.npy
 ```
 
 <br>
