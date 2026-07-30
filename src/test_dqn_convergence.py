@@ -1,10 +1,10 @@
 """
 test_dqn_convergence.py
 
-Tests DQN training stability across multiple random seeds by 
+Tests DQN training stability across multiple random seeds by
 checking whether the reward curve stabilizes (does not diverge).
 
-Note: Uses simulated reward curves as a placeholder until the full 
+Note: Uses simulated reward curves as a placeholder until the full
 DQN training loop (Member 2, Day 4) produces real training logs.
 """
 
@@ -15,7 +15,7 @@ from training_monitor import detect_divergence
 def simulate_reward_curve(seed, num_episodes=500):
     """
     Placeholder simulation of a DQN reward curve for a given seed.
-    Replace with real training logs once Member 2's training loop 
+    Replace with real training logs once Member 2's training loop
     (dqn_agent.py) is available.
     """
     np.random.seed(seed)

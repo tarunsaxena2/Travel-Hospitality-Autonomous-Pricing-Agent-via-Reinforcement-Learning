@@ -1,11 +1,10 @@
 """
 dqn_network.py
 
-Defines the neural network architecture used by the DQN agent to 
+Defines the neural network architecture used by the DQN agent to
 approximate Q-values for the dynamic pricing environment.
 """
 
-import torch
 import torch.nn as nn
 
 
@@ -32,14 +31,12 @@ class DQNNetwork(nn.Module):
         return self.network(x)
 
 
-
 def sync_target_network(policy_net, target_net):
     """
-    Performs a hard update: copies all weights from the policy 
+    Performs a hard update: copies all weights from the policy
     network to the target network.
-    
-    Called periodically (every N training steps) to stabilize 
+
+    Called periodically (every N training steps) to stabilize
     DQN training by keeping the target Q-values fixed for a while.
     """
     target_net.load_state_dict(policy_net.state_dict())
-

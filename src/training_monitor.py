@@ -1,7 +1,7 @@
 """
 training_monitor.py
 
-Utility for tracking and visualizing DQN training stability: 
+Utility for tracking and visualizing DQN training stability:
 loss curves and episodic reward curves across training steps.
 """
 
@@ -11,7 +11,7 @@ import numpy as np
 
 def plot_training_curves(loss_history, reward_history, save_path=None):
     """
-    Plots training loss and episodic reward curves side by side 
+    Plots training loss and episodic reward curves side by side
     to help identify signs of divergence during DQN training.
     """
     fig, axes = plt.subplots(1, 2, figsize=(12, 4))
@@ -37,7 +37,7 @@ def plot_training_curves(loss_history, reward_history, save_path=None):
 
 def detect_divergence(loss_history, window=50, threshold=2.0):
     """
-    Simple heuristic: flags divergence if recent average loss is 
+    Simple heuristic: flags divergence if recent average loss is
     significantly higher than an earlier window's average loss.
     """
     if len(loss_history) < window * 2:
