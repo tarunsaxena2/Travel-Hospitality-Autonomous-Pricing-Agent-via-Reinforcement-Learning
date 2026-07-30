@@ -121,3 +121,4 @@ class PricingEnv(gym.Env):
             f"Inventory: {self.remaining_inventory} | "
             f"Days left: {self.days_until_departure}"
         )
+        
