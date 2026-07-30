@@ -167,7 +167,7 @@ Travel-Hospitality-Autonomous-Pricing-Agent-via-Reinforcement-Learning/
 - [x] **Week 1** — MDP formulation & environment design
 - [x] **Week 2** — DQN agent development & training
 - [x] **Week 3** — Policy evaluation & revenue benchmarking
-- [ ] **Week 4** — Final analysis, visualization & report
+- [x] **Week 4** — Final analysis, visualization & report
 
 <br>
 
@@ -245,11 +245,6 @@ Full agent comparison tables and statistical analysis are available in:
 | 04 | **Tarun Saxena** | Eval & Deploy Lead |
 
 ---
-
-<p align="center">
-  <sub>Built with Python · Gymnasium · PyTorch · Streamlit</sub><br>
-  <sub>Infotact Solutions & Co. — Bengaluru, Karnataka</sub>
-</p>
 
 <br>
 
